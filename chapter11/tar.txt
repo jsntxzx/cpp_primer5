@@ -1,0 +1,1 @@
+go ls -al shutdown -h now xiang 

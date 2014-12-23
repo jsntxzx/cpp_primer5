@@ -1,0 +1,6 @@
+x xiang
+y yes
+g go
+l load
+ll ls -al
+sn shutdown -h now
