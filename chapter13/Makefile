@@ -12,8 +12,14 @@ all:
 	cd 13_21 && make && cd ../
 	$(CC) $(CFLAGS) 13_22.cpp -o 13_22.o 
 	cd 13_26 && make && cd ../
+	cd 13_27 && make && cd ../
+	cd 13_30 && make && cd ../
+	cd 13_31 && make && cd ../
 
 clean:
 	rm -rf *.o
 	cd 13_21 && make clean && cd ../
 	cd 13_26 && make clean && cd ../
+	cd 13_27 && make clean && cd ../
+	cd 13_30 && make clean && cd ../
+	cd 13_31 && make clean && cd ../
