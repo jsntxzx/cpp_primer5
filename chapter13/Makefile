@@ -1,3 +1,4 @@
+SUBDIR = `ls -d */`
 CC = g++
 CFLAGS = -Wall -std=c++11
 
@@ -9,17 +10,13 @@ all:
 	$(CC) $(CFLAGS) 13_16.cpp -o 13_16.o 
 	$(CC) $(CFLAGS) 13_18.cpp -o 13_18.o 
 	$(CC) $(CFLAGS) 13_19.cpp -o 13_19.o 
-	cd 13_21 && make && cd ../
 	$(CC) $(CFLAGS) 13_22.cpp -o 13_22.o 
-	cd 13_26 && make && cd ../
-	cd 13_27 && make && cd ../
-	cd 13_30 && make && cd ../
-	cd 13_31 && make && cd ../
+	for i in $(SUBDIR) ; do \
+	       (cd $$i && $(MAKE) ) || exit 1 ; \
+       		done	       
 
 clean:
 	rm -rf *.o
-	cd 13_21 && make clean && cd ../
-	cd 13_26 && make clean && cd ../
-	cd 13_27 && make clean && cd ../
-	cd 13_30 && make clean && cd ../
-	cd 13_31 && make clean && cd ../
+	for i in $(SUBDIR) ; do \
+		(cd $$i && $(MAKE) clean ) || exit 1 ;\
+		done
