@@ -1,0 +1,12 @@
+CC = g++
+CFLAGS = -Wall -std=c++11
+
+all: String
+	$(CC) $(CFLAGS) 13_50.cpp String.o -o 13_50.o
+
+
+String: String.cpp String.h
+	$(CC) $(CFLAGS) -c String.cpp
+
+clean:
+	rm -rf *.o
