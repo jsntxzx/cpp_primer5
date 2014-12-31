@@ -13,7 +13,7 @@ StrVec::StrVec(initializer_list<string> s)
 {
 	auto ret = alloc_n_copy(s.begin(),s.end());
 	elements = ret.first ;
-	first_free = ret.second ;
+	first_free = cap = ret.second ;
 }
 
 

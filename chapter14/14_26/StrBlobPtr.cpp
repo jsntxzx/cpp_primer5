@@ -40,3 +40,19 @@ bool operator!=(const StrBlobPtr &s1 ,const StrBlobPtr &s2)
 {
 	return !(s1==s2);
 }
+bool operator<(const StrBlobPtr & s1,const StrBlobPtr &s2)
+{
+	return s1.deref() < s2.deref() ;
+}
+
+string &StrBlobPtr::operator[](size_t n)
+{
+	auto p = check(n , "derefence out of out_of_range");
+	return (*p)[n];
+}
+
+const string &StrBlobPtr::operator[](size_t n) const
+{
+	auto p = check(n , "derefence out of out_of_range");
+	return (*p)[n];
+} 

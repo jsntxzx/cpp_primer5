@@ -61,3 +61,8 @@ bool operator!=(const StrBlob &s1 ,const StrBlob &s2)
 {
 	return !(s1==s2);
 }
+
+bool operator<(const StrBlob &s1, const StrBlob &s2)
+{
+	return *(s1.data) <  *(s2.data) ;
+}

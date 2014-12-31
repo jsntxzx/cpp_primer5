@@ -16,6 +16,14 @@ StrVec::StrVec(initializer_list<string> s)
 	first_free = cap = ret.second ;
 }
 
+StrVec & StrVec::operator=(initializer_list<string> li)
+{
+	auto ret = alloc_n_copy(li.begin() , li.end());
+	free();
+	elements = ret.first ;
+	first_free = cap = ret.second ;
+	return *this ;
+}
 
 StrVec::StrVec(const StrVec &sv)
 {
@@ -83,8 +91,7 @@ void StrVec::free()
 {
 	if(elements)
 	{
-		for(auto p = first_free-1 ; p!= elements ; p--)
-			alloc.destroy(p);
+		for_each(elements,first_free,[](string s){alloc.destroy(&s);});
 		alloc.deallocate(elements,cap-elements);
 	}
 }
@@ -101,4 +108,39 @@ void StrVec::reallocate()
 	elements = newdata ;
 	first_free = dest ;
 	cap = elements + newcapacity ;
+}
+
+
+bool operator==(const StrVec &s1 ,const StrVec &s2)
+{
+	if(s1.size() == s2.size())
+	{
+		for(size_t i =0 ; i< s1.size() ; i++)
+		{
+			if(*(s1.elements+i ) != *(s2.elements+i) )
+				return false ;
+		}	
+		return true;
+	}
+	return false ;
+}
+
+bool operator!=(const StrVec &s1 ,const StrVec &s2)
+{
+	return !(s1==s2);
+
+}
+
+bool operator< (const StrVec & s1,const StrVec &s2)
+{
+	for(size_t i =0 ; i< s1.size() && i < s2.size(); i++)
+	{
+		if(*(s1.elements+i ) < *(s2.elements+i) )
+			return true ;
+		else if(*(s1.elements+i ) < *(s2.elements+i) )
+			return false;
+	}
+	if(s1.size() < s2.size())
+		return true ;	
+	return false;
 }

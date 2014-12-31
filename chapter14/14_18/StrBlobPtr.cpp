@@ -40,3 +40,7 @@ bool operator!=(const StrBlobPtr &s1 ,const StrBlobPtr &s2)
 {
 	return !(s1==s2);
 }
+bool operator<(const StrBlobPtr & s1,const StrBlobPtr &s2)
+{
+	return s1.deref() < s2.deref() ;
+}

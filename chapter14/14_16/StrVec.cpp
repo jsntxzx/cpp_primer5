@@ -13,7 +13,7 @@ StrVec::StrVec(initializer_list<string> s)
 {
 	auto ret = alloc_n_copy(s.begin(),s.end());
 	elements = ret.first ;
-	first_free = ret.second ;
+	first_free = cap = ret.second ;
 }
 
 
@@ -105,7 +105,16 @@ void StrVec::reallocate()
 
 bool operator==(const StrVec &s1 ,const StrVec &s2)
 {
-	return s1.elements == s2.elements && s1.first_free == s2.first_free && s1.cap == s2.cap ;
+	if(s1.size() == s2.size())
+	{
+		for(size_t i =0 ; i< s1.size() ; i++)
+		{
+			if(*(s1.elements+i ) != *(s2.elements+i) )
+				return false ;
+		}	
+		return true;
+	}
+	return false ;
 }
 
 bool operator!=(const StrVec &s1 ,const StrVec &s2)

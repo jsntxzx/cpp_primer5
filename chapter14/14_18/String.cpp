@@ -68,6 +68,19 @@ bool operator!=(const String &s1 ,const String &s2)
 	return !(s1==s2);
 }
 
+bool operator<(const String & s1, const String &s2)
+{
+	for(size_t i =0 ; i< s1.size() && i < s2.size(); i++)
+	{
+		if(*(s1.spos+i ) < *(s2.spos+i) )
+			return true ;
+		else if(*(s1.spos+i ) < *(s2.spos+i) )
+			return false;
+	}
+	if(s1.size() < s2.size())
+		return true ;	
+	return false;
+}
 pair<char * , char *> String::alloc_n_copy(const char *b,const char *e)
 {
 	auto ret = alloc.allocate(e-b);
