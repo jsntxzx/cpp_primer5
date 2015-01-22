@@ -7,6 +7,9 @@ all:
 	$(CC) $(CFLAGS) 16_4.cpp -o 16_4.o 
 	$(CC) $(CFLAGS) 16_5.cpp -o 16_5.o 
 	$(CC) $(CFLAGS) 16_6.cpp -o 16_6.o 
+	$(CC) $(CFLAGS) 16_7.cpp -o 16_7.o 
+	$(CC) $(CFLAGS) 16_19.cpp -o 16_19.o 
+	$(CC) $(CFLAGS) 16_20.cpp -o 16_20.o 
 	for i in $(SUBDIR) ; do \
 	       (cd $$i && $(MAKE) ) || exit 1 ; \
        		done	       
