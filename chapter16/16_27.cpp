@@ -28,7 +28,7 @@ int main()
 	Stack<char> *sc ;
 	f1(*sc);
 	int iObj = sizeof(Stack<string>);
-
+	cout << iObj << endl ;
 	cout << Stack<char>::CountUsage << endl;
 	cout << Stack<int>::CountUsage << endl;
 	cout << Stack<double>::CountUsage << endl;
