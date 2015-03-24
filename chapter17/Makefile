@@ -15,6 +15,9 @@ all:
 	$(NCC) $(CFLAGS) 17_23.cpp -o 17_23.o 
 	$(NCC) $(CFLAGS) 17_24.cpp -o 17_24.o 
 	$(NCC) $(CFLAGS) 17_27.cpp -o 17_27.o 
+	$(NCC) $(CFLAGS) 17_28.cpp -o 17_28.o 
+	$(NCC) $(CFLAGS) 17_29.cpp -o 17_29.o 
+	$(NCC) $(CFLAGS) 17_30.cpp -o 17_30.o 
 	for i in $(SUBDIR) ; do \
 	       (cd $$i && $(MAKE) ) || exit 1 ; \
        		done	       
